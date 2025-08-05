@@ -1,0 +1,28 @@
+import openai
+
+# Step 1: Add your OpenAI API key
+client = openai.OpenAI(api_key="sk-")
+
+# Step 2: Path to the recorded audio file
+audio_path = "my_recording.wav"
+
+# Step 3: Transcribe audio using the new API (v1.97.1)
+with open(audio_path, "rb") as audio_file:
+    transcription = client.audio.transcriptions.create(
+        model="whisper-1",
+        file=audio_file
+    )
+
+print("🎤 Transcribed Text:")
+print(transcription.text)
+
+# Step 4: Generate reply using GPT
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "user", "content": transcription.text}
+    ]
+)
+
+print("🤖 GPT Reply:")
+print(response.choices[0].message.content)
