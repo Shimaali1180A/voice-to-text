@@ -74,3 +74,8 @@ Do not share your OpenAI API key publicly or push it to GitHub. Consider using e
 📜 License
 
 MIT License – free to use, modify, and share with attribution.
+## Notes
+
+- The Whisper model may sometimes slightly misinterpret certain words during transcription (for example, “ChatGPT” might be transcribed as “Chad GPT”).
+- This is expected behavior with speech-to-text systems and may depend on pronunciation, microphone quality, and background noise.
+-You can improve accuracy by speaking clearly and recording in a quiet environment.
